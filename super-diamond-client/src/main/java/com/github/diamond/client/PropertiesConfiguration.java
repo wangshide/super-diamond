@@ -221,6 +221,11 @@ public class PropertiesConfiguration extends EventSource {
 
         final String clientMsg = "superdiamond={\"projCode\": \"" + projCode + "\", \"profile\": \"" + profile + "\", "
                 + "\"modules\": \"" + modules + "\", \"version\": \"" + EnvUtil.getBuildVersion() + " \"}";
+        
+        final String connMsg = "{\"host\": \"" + host + "\", \"port\": \"" + port + "\", "
+                + "\"modules\": \"" + modules + "\", \"version\": \"" + EnvUtil.getBuildVersion() + " \"}";
+        logger.info("connMsg" + connMsg);
+        
         try {
             client = new Netty4Client(host, port, new ClientChannelInitializer(clientMsg));
 
@@ -361,7 +366,7 @@ public class PropertiesConfiguration extends EventSource {
 
         if (PropertiesFileUtils.getInstance().propertiesLoaded()) {
             try {
-                _host = String.valueOf(PropertiesFileUtils.getInstance().getProperty(Constants.HOST_KEY));
+                _host = PropertiesFileUtils.getInstance().getProperty(Constants.HOST_KEY);
                 if (StringUtils.isNotBlank(_host)) {
                     logger.info("get host from local properties file success, host is:" + _host);
                 }
@@ -397,7 +402,7 @@ public class PropertiesConfiguration extends EventSource {
 
         if (PropertiesFileUtils.getInstance().propertiesLoaded()) {
             try {
-                _port = Integer.valueOf(String.valueOf(PropertiesFileUtils.getInstance().getProperty(Constants.PORT_KEY)));
+                _port = PropertiesFileUtils.getInstance().getInteger(Constants.PORT_KEY);
                 if (_port > 0) {
                     logger.info("get port from local properties file success, port is:" + _port);
                 }
@@ -430,8 +435,7 @@ public class PropertiesConfiguration extends EventSource {
 
         if (PropertiesFileUtils.getInstance().propertiesLoaded()) {
             try {
-                Object val = PropertiesFileUtils.getInstance().getProperty(Constants.PROJECT_CODE_KEY);
-                _projCode = val == null ? "" : String.valueOf(val);
+            	_projCode = PropertiesFileUtils.getInstance().getProperty(Constants.PROJECT_CODE_KEY);
                 if (StringUtils.isNotBlank(_projCode)) {
                     logger.info("get project code from local properties file success, project code is:" + _projCode);
                 }
@@ -464,7 +468,7 @@ public class PropertiesConfiguration extends EventSource {
 
         if (PropertiesFileUtils.getInstance().propertiesLoaded()) {
             try {
-                _profile = String.valueOf(PropertiesFileUtils.getInstance().getProperty(Constants.PROFILE_KEY));
+                _profile = PropertiesFileUtils.getInstance().getProperty(Constants.PROFILE_KEY);
                 if (StringUtils.isNotBlank(_profile)) {
                     logger.info("get profile from local properties file success, profile is:" + _profile);
                 }
@@ -498,7 +502,7 @@ public class PropertiesConfiguration extends EventSource {
 
         if (PropertiesFileUtils.getInstance().propertiesLoaded()) {
             try {
-                _modules = String.valueOf(PropertiesFileUtils.getInstance().getProperty(Constants.MODULES_KEY));
+                _modules = PropertiesFileUtils.getInstance().getProperty(Constants.MODULES_KEY);
                 if (StringUtils.isNotBlank(_modules)) {
                     logger.info("get modules from local properties file success, modules is:" + _modules);
                 }
@@ -532,7 +536,7 @@ public class PropertiesConfiguration extends EventSource {
 
         if (PropertiesFileUtils.getInstance().propertiesLoaded()) {
             try {
-                _localFilePath = String.valueOf(PropertiesFileUtils.getInstance().getProperty(Constants.LOCAL_FILE_PATH_KEY));
+                _localFilePath = PropertiesFileUtils.getInstance().getProperty(Constants.LOCAL_FILE_PATH_KEY);
                 if (StringUtils.isNotBlank(_localFilePath)) {
                     logger.info("get localFilePath from local properties file success, localFilePath is:" + _localFilePath);
                 }
