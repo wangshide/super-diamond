@@ -4,6 +4,7 @@
 
 ### 简介
 SuperDiamond是集中化配置系统，用来将分散在各业务系统中的配置进行集中统一管理，便于开发/测试/运维人员进行配置的操作。由于原作者已暂停了该项目的维护，所以我们fork了一份代码进行持续优化改进。
+该项目从[https://github.com/talywy/super-diamond](https://github.com/talywy/super-diamond) fork过来，客户端增加了DiamondPropertyPlaceholderConfigurer继承于PropertyPlaceholderConfigurer，可以在xml中正常配置。
 
 ### 功能特性
 #### 客户端
