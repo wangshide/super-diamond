@@ -19,7 +19,7 @@ SuperDiamond是集中化配置系统，用来将分散在各业务系统中的�
 - 支持多账号使用，不同账号可分配不同项目权限。
 - 除Java客户端外、还支持PHP客户端使用（PHP不支持配置变化事件通知）。
 
-更多使用方式和说明，请参考 [https://github.com/xiaolong7713/super-diamond/wiki/Getting-Started](https://github.com/talywy/super-diamond/wiki/Getting-Started "Wiki")
+更多使用方式和说明，请参考 [https://github.com/xiaolong7713/super-diamond/wiki/Getting-Started](https://github.com/xiaolong7713/super-diamond/wiki/Getting-Started "Wiki")
 
 ### 系统部分功能截图
 ![](https://raw.githubusercontent.com/xiake2025/super-diamond/master/image/diamond_1.png "功能截图1")
